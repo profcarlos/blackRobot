@@ -40,8 +40,6 @@ int lado = DIREITA;
   int velocidade =0;
   
   
-// Step 1 -  Instantiating an object library
-  Fuzzy* fuzzy = new Fuzzy();
   
 void setup()
 {
