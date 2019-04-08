@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------------------------------
 // IFG - Campus Goiânia
-// Curso: Engenharia Elétrica. 
-// Disciplina: Sistemas Inteligentes
+// Curso: 
+// Disciplina: 
 // Professor: Carlos Roberto da Silveira Junior
-// Objetivo: O Robô faz uso da lógica fuzzy para controle de velocidade tendo como entrada a distância.
-// Utilizou-se a biblioteca eFLL para lógica Fuzzy, disponível em https://github.com/zerokol/eFLL.
+// Objetivo: O Robô utiliza o sensor de ultrassom para desvio de obstaculos
+// 
 //-------------------------------------------------------------------------------------------------------
 
 #define DIREITA  1
@@ -96,11 +96,11 @@ void loop()
     delay(500);
     if(lado == DIREITA){
       virarDireita();
-      lado == ESQUERDA;
+      lado = ESQUERDA;
     }
     else{
       virarEsquerda();
-      lado == DIREITA;    
+      lado = DIREITA;    
     }     
     delay(500);
     desligaApito(); 
