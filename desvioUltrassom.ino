@@ -60,7 +60,7 @@ void setup()
   desligaApito();
   delay(1000);
   Serial.begin(9600);
-  Serial.println('Iniciando processo');
+  Serial.println("Iniciando processo");
 }
 
 void loop()
