@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------------------------------
 // IFG - Campus Goiânia
-// Curso: 
-// Disciplina: 
+// Curso: Engenharia Elétrica. 
+// Disciplina: Sistemas Inteligentes
 // Professor: Carlos Roberto da Silveira Junior
-// Objetivo: O Robô desvia de obstáculos a 30 cm de distância usando o sensor de ultrassom
-// 
+// Objetivo: O Robô faz uso da lógica fuzzy para controle de velocidade tendo como entrada a distância.
+// Utilizou-se a biblioteca eFLL para lógica Fuzzy, disponível em https://github.com/zerokol/eFLL.
 //-------------------------------------------------------------------------------------------------------
 
 #define DIREITA  1
@@ -38,7 +38,6 @@ int lado = DIREITA;
   int valLuz1  = 0;
   int distancia =0;
   int velocidade =0;
-  
   
   
 void setup()
