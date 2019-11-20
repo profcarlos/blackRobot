@@ -5,6 +5,7 @@
 #include "RichShieldTM1637.h"
 #include <SimpleModbusSlave.h>
 
+// https://www.embarcados.com.br/integracao-arduino-e-elipse-scada/
 /* 
    SimpleModbusSlaveV10 supports function 3, 6 & 16.
    
@@ -45,8 +46,8 @@ NTC temper(NTC_PIN);
 #define LIGHTSENSOR_PIN A2//SIG pin of Rocker Switch module connect to A0 of IO Shield, that is pin A2 of OPEN-SMART UNO R3
 LightSensor lightsensor(LIGHTSENSOR_PIN);  
 
-#define VOL_SENOR A3//The SIG pin connects A3 pin of OPEN-SMART UNO R3
-VoltageSensor voltage(VOL_SENOR);
+#define VOL_SENSOR A0//The SIG pin connects A3 pin of OPEN-SMART UNO R3
+VoltageSensor voltage(VOL_SENSOR);
 
 #define CLK 10//CLK of the TM1637 IC connect to D10 of OPEN-SMART UNO R3
 #define DIO 11//DIO of the TM1637 IC connect to D11 of OPEN-SMART UNO R3
@@ -130,23 +131,23 @@ void loop()
   
   disp.display(temperatura);
   digitalWrite(LED_AMAR, HIGH);
-  delay(5000);
+  delay(200);
   digitalWrite(LED_AMAR, LOW);
   disp.display(luminosidade);
   digitalWrite(LED_AZUL, HIGH);
-  delay(5000);
+  delay(200);
   digitalWrite(LED_AZUL, LOW);
   disp.display(potenciometro);
   digitalWrite(LED_VERD, HIGH);
-  delay(5000);
+  delay(200);
   digitalWrite(LED_VERD, LOW);
 
   digitalWrite(LED_VERM, HIGH);
-  holdingRegs[TEMP_VAL] = temperatura;
-  holdingRegs[LUM_VAL]  = luminosidade;
-  holdingRegs[POT_VAL]  = potenciometro;
+  holdingRegs[TEMP_VAL] = int(temperatura);
+  holdingRegs[LUM_VAL]  = int(luminosidade);
+  holdingRegs[POT_VAL]  = int(potenciometro);
   modbus_update();
-  delay(2000);
+  delay(200);
   digitalWrite(LED_VERM, LOW);
   
   /* Note:
